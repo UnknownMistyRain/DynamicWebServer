@@ -1,4 +1,3 @@
-"""
 ========
 DynamicWebServer
 ========
@@ -6,39 +5,32 @@ DynamicWebServer
 :SourceCode:    `GitHub <https://github.com/UnknownMistyRain/DynamicWebServer>`
 :License:     `MIT <https://github.com/UnknownMistyRain/DynamicWebServer/blob/master/LICENSE>`
 :BasedOn:     `Flask <https://github.com/pallets/flask>`
-"""
 
-import flask
+What is it ?
+----
+This is a Web server that implements dynamic pages by replacing content retained by static pages.
+
+How can I use it ?
+----
 
 
-class Server:
-    def __init__(self, name: str = 'Page', port: int = 80, hostname: str = '0.0.0.0', identifiers: str = '*'):
-        self.n = name
-        self.s = flask.Flask(self.n)
-        self.p = port
-        self.h = hostname
-        self.i = identifiers
+1.Import this module
 
-    def addPage(self, source: str, path: str = '/', functions: dict = None, methods: list = None):
-        if methods is None:
-            methods = ['get', 'post']
+    import dynamicwebserver as dws
 
-        @self.s.route(path, methods=methods)
-        def method():
-            if functions is None:
-                return source
-            else:
-                a = flask.request.args
-                c = source
-                for k, v in functions.items():
-                    f = functions[k]
-                    r = f(a)
-                    c = c.replace(self.i + k + self.i, r)
-                return c
+2.Create a server object
 
-    def start(self, port: int = None, hostname: str = None):
-        if port is None:
-            port = self.p
-        if hostname is None:
-            hostname = self.h
-        self.s.run(port=port, host=hostname)
+    server = dws.Server('ServerName', identifiers = '*')
+3.Create a method and add a page
+
+    def user(args):
+       return args['user']
+    server.addPage('Hi *user*', '/', {'user':user}, ['get', 'post'])
+
+4.Start the server
+
+    server.start(80, '0.0.0.0')
+
+5.Wait for the server to start and visit your site
+
+    localhost/?user=UnknownMistyRain
