@@ -34,4 +34,4 @@ How can I use it ?
 
 5.Wait for the server to start and visit your site
 
-    `Site <localhost/?user=UnknownMistyRain>`
+    localhost/?user=UnknownMistyRain
