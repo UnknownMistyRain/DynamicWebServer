@@ -20,12 +20,12 @@ How can I use it ?
 
 2.Create a server object
 
-    server = dws.Server('ServerName', identifiers = '%%')
+    server = dws.Server('ServerName', identifiers = '%')
 3.Create a method and add a page
 
     def user(args):
        return args['user']
-    server.addPage('Hi %%user%%', '/', {'user':user}, ['get', 'post'])
+    server.addPage('Hi %user%', '/', {'user':user}, ['get', 'post'])
 
 4.Start the server
 
@@ -34,3 +34,7 @@ How can I use it ?
 5.Wait for the server to start and visit your site
 
     localhost/?user=UnknownMistyRain
+
+6.It shows that
+
+    Hi UnknownMistyRain
