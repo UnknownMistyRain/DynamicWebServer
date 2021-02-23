@@ -3,8 +3,7 @@
 DynamicWebServer
 ========
 
-:SourceCode:    `GitHub <https://github.com/UnknownMistyRain/DynamicWebServer>`
-:License:     `MIT <https://github.com/UnknownMistyRain/DynamicWebServer/blob/master/LICENSE>`
+:SourceCode:    `GitHub <https://github.com/SagiriPillow/HanaShirosaki>`
 :BasedOn:     `Flask <https://github.com/pallets/flask>`
 """
 
